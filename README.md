@@ -8,7 +8,12 @@ pennu is a simple Ruby library (soon to be gem) that allows you to easily retrei
 
 ```ruby
 require 'pennu'
+
+# Download weekly menu for all meals at given dining hall
+# Supported dining halls = ["hill", "commons", "kings court"]
 hill = DiningHall.new('hill')
+
+# You can call meals by meal name and day of week
 puts hill.friday.dinner
 ```
 
@@ -16,10 +21,8 @@ Will yield:
 ```
 Menu for dinner at Hill on Friday, October 19, 2012:
 Kettles: Mushroom Barley and Chicken Tortilla Soup
-Comfort: Chicken Provencal, Parmesan Polenta, Italian Green Beans and Sauteed Zu
-cchini
-Flipped: Hamburgers, Hot Dogs, Grilled Marinated Chicken, Vegan Patty and French
- Fries
+Comfort: Chicken Provencal, Parmesan Polenta, Italian Green Beans and Sauteed Zucchini
+Flipped: Hamburgers, Hot Dogs, Grilled Marinated Chicken, Vegan Patty and French Fries
 Expo: Butternut Squash Risotto
 Pizza: An Ever Changing Selection of Italian Favorites
 Hemispheres: Local Yogurts, Fresh Baked Bagels and Bread Bar, Assorted Pastries
