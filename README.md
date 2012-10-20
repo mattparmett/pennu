@@ -25,8 +25,7 @@ Comfort: Chicken Provencal, Parmesan Polenta, Italian Green Beans and Sauteed Zu
 Flipped: Hamburgers, Hot Dogs, Grilled Marinated Chicken, Vegan Patty and French Fries
 Expo: Butternut Squash Risotto
 Pizza: An Ever Changing Selection of Italian Favorites
-Hemispheres: Local Yogurts, Fresh Baked Bagels and Bread Bar, Assorted Pastries
-and Desserts, Make your Own Waffle Bar, Ice Cream
+Hemispheres: Local Yogurts, Fresh Baked Bagels and Bread Bar, Assorted Pastriesand Desserts, Make your Own Waffle Bar, Ice Cream
 Deli: Assorted Breads, Deli Meats and Cheeses made to order
 Good 4 You: Tofu and Red Lentil Risotto, Roasted Eggplant, Balsamic Tomatoes
 ```
