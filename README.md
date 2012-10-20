@@ -1,4 +1,4 @@
-# pennu: A Ruby library for retrieving menus for Penn Dining Halls #
+# pennu: Penn students, get fed #
 
 pennu is a simple Ruby library (soon to be gem) that allows you to easily retreive the menus of Penn dining halls.
 
