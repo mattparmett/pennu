@@ -32,7 +32,7 @@ Deli: Assorted Breads, Deli Meats and Cheeses made to order
 Good 4 You: Tofu and Red Lentil Risotto, Roasted Eggplant, Balsamic Tomatoes
 ```
 
-Calling ```ruby hill.friday.dinner``` will yield a ```ruby String``` like the output above.  The menu items are more accessible as a hash of titles (e.g. ```Kettles``` and items (e.g. ```Mushroom Barley and Chicken Tortilla Soup```).  To get the menu as a hash, simple call ```to_hash```.  Running:
+Calling ``` hill.friday.dinner``` will yield a ``` String``` like the output above.  The menu items are more accessible as a hash of titles (e.g. ```Kettles``` and items (e.g. ```Mushroom Barley and Chicken Tortilla Soup```).  To get the menu as a hash, simple call ```to_hash```.  Running:
 
 ```ruby
 puts hill.friday.dinner.to_hash.inspect
