@@ -1,4 +1,4 @@
-# Ruby library (soon to be gem) that retrieves menus for Penn dining halls.
+# Ruby gem that retrieves menus for Penn dining halls.
 # Written by Matt Parmett, W'14 C'14
 
 # Requires

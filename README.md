@@ -2,6 +2,12 @@
 
 pennu is a simple Ruby library (soon to be gem) that allows you to easily retreive the menus of Penn dining halls.
 
+## Installation ##
+
+pennu is hosted on rubygems, so installation is as simple as:
+
+```gem install pennu```
+
 ## How to use pennu ##
 
 *This section may change as pennu is developed.  As such, this section may not be fully accurate, but I will try to keep the instructions as current as possible.*
@@ -54,5 +60,4 @@ pennu was written and tested on Windows; some hiccups may result from running pe
 All contributions are welcome via pull request.
 
 ## TODO ##
-*	Create gem
 * More extensive testing
