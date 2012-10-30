@@ -18,7 +18,7 @@ class DiningHall
     end
     
     @urls = {
-    'breafast' => ROOT_URL + dining_hall_path + BREAKFAST_PATH,
+    'breakfast' => ROOT_URL + dining_hall_path + BREAKFAST_PATH,
     'lunch' => ROOT_URL + dining_hall_path + LUNCH_PATH,
     'dinner' => ROOT_URL + dining_hall_path + DINNER_PATH,
     }
