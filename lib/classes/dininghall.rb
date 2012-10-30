@@ -60,20 +60,8 @@ class DiningHall
     # Assign dates to days
     # Each day will contain b, l, and d menus
     @dates.each do |date|
-      if date.strftime("%A") == "Sunday"
-        @sunday = Day.new(self, date)
-      elsif date.strftime("%A") == "Monday"
-        @monday = Day.new(self, date)
-      elsif date.strftime("%A") == "Tuesday"
-        @tuesday = Day.new(self, date)
-      elsif date.strftime("%A") == "Wednesday"
-        @wednesday = Day.new(self, date)
-      elsif date.strftime("%A") == "Thursday"
-        @thursday = Day.new(self, date)
-      elsif date.strftime("%A") == "Friday"
-        @friday = Day.new(self, date)
-      elsif date.strftime("%A") == "Saturday"
-        @saturday = Day.new(self, date)
+      if !(DAYS.index(date.strftime("%A").downcase).nil?)
+        self.instance_variable_set("@#{date.strftime("%A").downcase}", Day.new(self, date))
       end
     end
   end
