@@ -1,7 +1,7 @@
 class DiningHall
-  attr_accessor :name, :urls, :tds, :dates, :sunday, :monday,
-                :tuesday, :wednesday, :thursday, :friday,
-                :saturday, :sunday
+  attr_accessor :name, :urls, :breakfast_tds, :lunch_tds, :dinner_tds,
+                :dates, :sunday, :monday, :tuesday, :wednesday, :thursday,
+                :friday, :saturday, :sunday
   
   # Has days, which have meals
   def initialize(name)
@@ -23,39 +23,18 @@ class DiningHall
     'dinner' => ROOT_URL + dining_hall_path + DINNER_PATH,
     }
     
-    self.get_menus()
+    # Get dates for each day in the current week
+    self.get_days()
+    
+    # Get the tds for each #{meal} for each day of the week
+    @urls.each { |meal, _| self.get_meal_tds(meal) }
   end
   
-  def get_menus()
-    # Get menu table from dining website, use dinner for dates
-    agent = Mechanize.new
-    meal_page = agent.get(self.urls['dinner'])
-    table = meal_page.search("div.boxbody")
-    
-    # Scrape all tds into array
-    @tds = []
-    table.xpath('//tr/td').to_a.each do |td|
-      td = td.text.lstrip.rstrip
-      tds << td unless (td.gsub(/\s+/, "") == "" or td.gsub(/\s+/, "") == "\u00A0")
-    end
-    
-    # Remove dining hall title, which is the first element in tds
-    @tds.shift
-    
-    # Create array of dates
-    tds_clone = @tds.clone
-    @dates = @tds.keep_if { |td|
-      begin
-        DateTime.strptime(td, "%A, %B %d, %Y")
-      rescue ArgumentError
-        false
-      else
-        true
-      end
-    }.map { |day_string|  DateTime.strptime(day_string, "%A, %B %d, %Y") }
-    
-    # Clone tds to preserve for later methods
-    @tds = tds_clone
+  def get_days()
+    @dates = []
+    today = Date.today
+    @dates << today - today.wday # sunday
+    (1..6).each { |n| @dates << @dates[0] + n }
     
     # Assign dates to days
     # Each day will contain b, l, and d menus
@@ -65,4 +44,25 @@ class DiningHall
       end
     end
   end
+  
+  def get_meal_tds(meal)
+    # Get menu table from dining website, use dinner for dates
+    agent = Mechanize.new
+    meal_page = agent.get(self.urls[meal])
+    table = meal_page.search("div.boxbody")
+    
+    # Scrape all tds into array
+    tds = []
+    table.xpath('//tr/td').to_a.each do |td|
+      td = td.text.lstrip.rstrip
+      tds << td unless (td.gsub(/\s+/, "") == "" or td.gsub(/\s+/, "") == "\u00A0")
+    end
+    
+    # Remove dining hall title, which is the first element in tds
+    tds.shift
+    
+    # Set instance var
+    self.instance_variable_set("@#{meal}_tds", tds)
+  end
+  
 end
