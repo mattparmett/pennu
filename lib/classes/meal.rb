@@ -11,7 +11,8 @@ class Meal
   def to_hash()
     # Add date key to beginning of hash and
     # return hash of items and titles
-    {'date' => @date.to_s}.merge @day_items
+    {'date' => @date.to_s, 'menu' => @day_items}
+    #{'date' => @date.to_s}.merge @day_items
   end
   
   def to_s()
